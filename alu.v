@@ -33,11 +33,11 @@ module alu(
 		end else begin
 			//SRへの書き込みを阻害できる
 			if(dstb==0) begin
-				if(rr==0) ze<=1;
+				if(rr==0) ze<=1; //カウンタの値が０のときに、フラグが立ち、ジャンプをしないようにする
 				else ze<=0;
-				if(rr[`WIDTH+1]==1) ca<=1;
+				if(rr[`WIDTH+1]==1) ca<=1; //最上位ビットが1かどうか
 				else ca<=0;
-				if(r[`WIDTH]==1) sg<=1;
+				if(r[`WIDTH]==1) sg<=1; //オーバーフロー
 				else sg<=0;
 			end
 		end
